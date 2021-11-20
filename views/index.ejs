@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календарь</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+    <header>      
+        <h2>Год <%= year %></h2>
+    </header>
+
+    <div class="calendar-container">
+        <% for(let month = 0; month < calendar.length; month++) { %>
+
+        <div class="month-container" id="<%= months[month] %>">
+            <h3 style="text-align: center;"> <%= months[month] %> </h3>
+
+            <div class="day-of-week">
+                <span>Воскресенье</span><span>Понедельник</span><span>Вторник</span><span>
+                    Среда</span><span>Четверг</span><span>Пятница</span><span>Суббота</span>
+            </div>
+            <% for(let x = 0; x < calendar[month].length; x++) { %>
+            <div class="days">
+                <% for(let y = 0;y < calendar[month][x].length;y++) { %>
+                <div class="date">
+                    <div id="<%=calendar[month][x][y] %>">
+                        <%= calendar[month][x][y] %>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+
+</body>
+
+</html>
